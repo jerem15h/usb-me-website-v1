@@ -1,27 +1,31 @@
 import { SiteNav } from '@/components/site-nav'
 import { Hero } from '@/components/hero'
-import { Problem } from '@/components/problem'
-import { Capabilities } from '@/components/capabilities'
+import { Thesis } from '@/components/thesis'
+import { Ladder } from '@/components/ladder'
+import { Pipeline } from '@/components/pipeline'
 import { Memory } from '@/components/memory'
-import { LocalFirst } from '@/components/local-first'
+import { Device } from '@/components/device'
+import { Benchmark } from '@/components/benchmark'
 import { Workspace } from '@/components/workspace'
-import { Privacy } from '@/components/privacy'
-import { ClosingCta } from '@/components/closing-cta'
+import { Control } from '@/components/control'
+import { Access } from '@/components/access'
 import { SiteFooter } from '@/components/site-footer'
 
 export default function Page() {
   return (
-    <div className="min-h-dvh bg-background text-foreground">
+    <div className="min-h-dvh">
       <SiteNav />
       <main>
         <Hero />
-        <Problem />
-        <Capabilities />
+        <Thesis />
+        <Ladder />
+        <Pipeline />
         <Memory />
-        <LocalFirst />
+        <Device />
+        <Benchmark />
         <Workspace />
-        <Privacy />
-        <ClosingCta />
+        <Control />
+        <Access />
       </main>
       <SiteFooter />
     </div>

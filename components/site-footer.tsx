@@ -3,26 +3,42 @@ import { Wordmark } from '@/components/wordmark'
 const groups = [
   {
     title: 'Product',
-    links: ['How it works', 'Personal memory', 'Local-first', 'Workspaces'],
+    links: [
+      { label: 'What it does', href: '#work' },
+      { label: 'How it works', href: '#how' },
+      { label: 'Memory', href: '#memory' },
+      { label: 'Your phone', href: '#device' },
+      { label: 'Evidence', href: '#evidence' },
+    ],
   },
   {
     title: 'Company',
-    links: ['About', 'Research', 'Careers', 'Contact'],
+    links: [
+      { label: 'About', href: '#top' },
+      { label: 'Research', href: '#top' },
+      { label: 'Careers', href: '#top' },
+      { label: 'Contact', href: '#access' },
+    ],
   },
   {
-    title: 'Privacy',
-    links: ['Network control', 'Data ownership', 'Terms', 'Privacy Policy'],
+    title: 'Your data',
+    links: [
+      { label: 'Network control', href: '#control' },
+      { label: 'What we store', href: '#control' },
+      { label: 'Terms', href: '#top' },
+      { label: 'Privacy', href: '#top' },
+    ],
   },
 ]
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+    <footer className="ink-block">
+      <div className="rail py-16">
+        <div className="grid gap-12 px-5 sm:px-10 md:grid-cols-[1.5fr_repeat(3,1fr)]">
           <div>
             <Wordmark />
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-[28ch] text-[15px] leading-relaxed text-muted-foreground">
               A personal intelligence that lives on your phone and belongs to
               you.
             </p>
@@ -30,17 +46,15 @@ export function SiteFooter() {
 
           {groups.map((g) => (
             <div key={g.title}>
-              <h3 className="mb-4 font-serif text-sm text-foreground">
-                {g.title}
-              </h3>
-              <ul className="space-y-2.5">
+              <h3 className="text-[15px] font-medium text-foreground">{g.title}</h3>
+              <ul className="mt-4 space-y-2.5">
                 {g.links.map((l) => (
-                  <li key={l}>
+                  <li key={l.label}>
                     <a
-                      href="#"
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      href={l.href}
+                      className="underline-grow text-[15px] text-muted-foreground transition-colors duration-400 hover:text-foreground"
                     >
-                      {l}
+                      {l.label}
                     </a>
                   </li>
                 ))}
@@ -49,9 +63,9 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>Kin © 2026 — Runs on-device with NVIDIA Nemotron.</p>
-          <p className="font-serif italic">The phone is the home of the intelligence.</p>
+        <div className="mt-14 flex flex-col gap-2 border-t px-5 pt-6 text-[14px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-10">
+          <p>usb-me, 2026. Runs on your phone with NVIDIA Nemotron.</p>
+          <p>Everyone should own their own intelligence.</p>
         </div>
       </div>
     </footer>

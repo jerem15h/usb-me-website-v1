@@ -1,7 +1,19 @@
-export function SectionLabel({ children }: { children: React.ReactNode }) {
+import { cn } from '@/lib/utils'
+
+export function SectionLabel({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
   return (
-    <span className="inline-flex items-center gap-2 font-serif text-sm italic text-muted-foreground">
-      <span aria-hidden="true" className="h-px w-6 bg-border" />
+    <span className={cn('inline-flex items-center gap-3 text-[13px] text-muted-foreground', className)}>
+      <span
+        aria-hidden="true"
+        className="h-px w-8"
+        style={{ background: 'var(--signal)' }}
+      />
       {children}
     </span>
   )

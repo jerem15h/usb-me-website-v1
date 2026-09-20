@@ -1,30 +1,29 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono, Newsreader } from 'next/font/google'
+import { DM_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  variable: '--font-geist-sans',
+  variable: '--font-dm-sans',
+  weight: ['300', '400', '500', '600', '700'],
 })
 
-const geistMono = Geist_Mono({
+const dmMono = DM_Mono({
   subsets: ['latin'],
-  variable: '--font-geist-mono',
+  variable: '--font-dm-mono',
+  weight: ['300', '400', '500'],
 })
 
-const newsreader = Newsreader({
-  subsets: ['latin'],
-  variable: '--font-newsreader',
-  style: ['normal', 'italic'],
-  weight: ['300', '400', '500', '600'],
-})
+const title = 'usb-me. Own your intelligence.'
+const description =
+  'usb-me is a personal intelligence that lives on your phone. You talk to it. It learns the parts of your life you choose to share, works out what you are trying to get done, and does it. Powered by NVIDIA Nemotron, running on your device.'
 
 export const metadata: Metadata = {
-  title: 'Kin — A personal intelligence that lives on your phone',
-  description:
-    'Kin is a personal intelligence that runs locally on your iPhone and belongs to you. It remembers what matters, reasons about your goals, and takes action through the tools you connect — working offline whenever it can.',
-  generator: 'v0.app',
+  title,
+  description,
+  openGraph: { title, description, type: 'website' },
+  twitter: { card: 'summary_large_image', title, description },
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
@@ -37,19 +36,14 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#fbf4dd',
+  themeColor: '#f8f8f3',
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`bg-background ${geistSans.variable} ${geistMono.variable} ${newsreader.variable}`}
-    >
+    <html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
